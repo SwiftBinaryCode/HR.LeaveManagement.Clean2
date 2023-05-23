@@ -1,3 +1,4 @@
+using Blazored.Toast.Services;
 using HR.LeaveManagement.BlazorUI.Contracts;
 using HR.LeaveManagement.BlazorUI.Models.LeaveRequests;
 using HR.LeaveManagement.BlazorUI.Models.LeaveTypes;

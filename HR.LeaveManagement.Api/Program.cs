@@ -3,11 +3,14 @@ using HR.LeaveManagement.Application;
 using HR.LeaveManagement.Identity;
 using HR.LeaveManagement.Infrastructure;
 using HR.LeaveManagement.Persistence;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+builder.Host.UseSerilog((context, loggerConfig) => loggerConfig
+    .WriteTo.Console()
+    .ReadFrom.Configuration(context.Configuration));
 
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);
@@ -23,6 +26,7 @@ builder.Services.AddCors(options =>
     .AllowAnyMethod());
 });
 
+builder.Services.AddHttpContextAccessor();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -37,7 +41,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseSerilogRequestLogging();
 app.UseHttpsRedirection();
 
 app.UseCors("all");
