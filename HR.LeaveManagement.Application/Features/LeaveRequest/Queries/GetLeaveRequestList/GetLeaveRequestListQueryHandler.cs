@@ -3,6 +3,7 @@ using HR.LeaveManagement.Application.Contracts.Identity;
 using HR.LeaveManagement.Application.Contracts.Persistence;
 using MediatR;
 
+
 namespace HR.LeaveManagement.Application.Features.LeaveRequest.Queries.GetLeaveRequestList
 {
     public class GetLeaveRequestListQueryHandler : IRequestHandler<GetLeaveRequestListQuery, List<LeaveRequestListDto>>

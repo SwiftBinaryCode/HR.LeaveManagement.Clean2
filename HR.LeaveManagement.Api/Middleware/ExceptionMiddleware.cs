@@ -72,6 +72,7 @@ namespace HR.LeaveManagement.Api.Middleware
             _logger.LogError(logMessage);
             await httpContext.Response.WriteAsJsonAsync(problem);
 
+
         }
     }
 }

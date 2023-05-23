@@ -9,7 +9,6 @@ namespace HR.LeaveManagement.Persistence.Repositories
     {
         public LeaveTypeRepository(HrDatabaseContext context) : base(context)
         {
-                
         }
 
         public async Task<bool> IsLeaveTypeUnique(string name)

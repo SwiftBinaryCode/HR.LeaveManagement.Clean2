@@ -8,13 +8,14 @@ namespace HR.LeaveManagement.Application.Features.LeaveType.Commands.CreateLeave
     public class CreateLeaveTypeCommandHandler : IRequestHandler<CreateLeaveTypeCommand, int>
     {
         private readonly IMapper _mapper;
-
         private readonly ILeaveTypeRepository _leaveTypeRepository;
+
         public CreateLeaveTypeCommandHandler(IMapper mapper, ILeaveTypeRepository leaveTypeRepository)
         {
             _mapper = mapper;
             _leaveTypeRepository = leaveTypeRepository;
         }
+
         public async Task<int> Handle(CreateLeaveTypeCommand request, CancellationToken cancellationToken)
         {
             // Validate incoming data
@@ -35,3 +36,4 @@ namespace HR.LeaveManagement.Application.Features.LeaveType.Commands.CreateLeave
         }
     }
 }
+

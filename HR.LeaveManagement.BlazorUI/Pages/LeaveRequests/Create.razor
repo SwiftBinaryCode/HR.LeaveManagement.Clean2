@@ -12,7 +12,7 @@
     </div>
     <div class="form-group">
         <label for="endDate">End Date</label>
-            <InputDate class="form-control" id="endDate" @bind-Value="LeaveRequest.EndDate" />
+        <InputDate class="form-control" id="endDate" @bind-Value="LeaveRequest.EndDate" />
         <ValidationMessage For="@(() => LeaveRequest.EndDate)" />
     </div>
     <div class="form-group">
@@ -23,7 +23,7 @@
             {
                 <option value="@leaveType.Id">@leaveType.Name</option>
             }
-            </InputSelect>
+        </InputSelect>
         <ValidationMessage For="@(() => LeaveRequest.LeaveTypeId)" />
     </div>
     <div class="form-group">

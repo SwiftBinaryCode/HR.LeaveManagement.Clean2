@@ -20,7 +20,7 @@ namespace HR.LeaveManagement.Application.Features.LeaveAllocation.Commands.Creat
             _mapper = mapper;
             this._leaveAllocationRepository = leaveAllocationRepository;
             this._leaveTypeRepository = leaveTypeRepository;
-            _userService = userService;
+            this._userService = userService;
         }
 
         public async Task<Unit> Handle(CreateLeaveAllocationCommand request, CancellationToken cancellationToken)

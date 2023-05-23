@@ -103,7 +103,4 @@ namespace HR.LeaveManagement.BlazorUI.Services
         }
     }
 
-
-
-
 }

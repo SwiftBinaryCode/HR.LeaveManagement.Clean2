@@ -9,7 +9,6 @@ namespace HR.LeaveManagement.Persistence.Repositories
     {
         public LeaveRequestRepository(HrDatabaseContext context) : base(context)
         {
-
         }
 
         public async Task<List<LeaveRequest>> GetLeaveRequestsWithDetails()
@@ -23,8 +22,8 @@ namespace HR.LeaveManagement.Persistence.Repositories
 
         public async Task<List<LeaveRequest>> GetLeaveRequestsWithDetails(string userId)
         {
-            var leaveRequests = await _context.LeaveRequests.
-                Where(q => q.RequestingEmployeeId == userId)
+            var leaveRequests = await _context.LeaveRequests
+                .Where(q => q.RequestingEmployeeId == userId)
                 .Include(q => q.LeaveType)
                 .ToListAsync();
             return leaveRequests;

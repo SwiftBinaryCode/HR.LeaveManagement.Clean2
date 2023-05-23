@@ -12,15 +12,12 @@ namespace HR.LeaveManagement.Application.Features.LeaveType.Commands.UpdateLeave
         private readonly ILeaveTypeRepository _leaveTypeRepository;
         private readonly IAppLogger<UpdateLeaveTypeCommandHandler> _logger;
 
-        public UpdateLeaveTypeCommandHandler(IMapper mapper, ILeaveTypeRepository leaveTypeRepository,
-            IAppLogger<UpdateLeaveTypeCommandHandler> logger)
+        public UpdateLeaveTypeCommandHandler(IMapper mapper, ILeaveTypeRepository leaveTypeRepository, IAppLogger<UpdateLeaveTypeCommandHandler> logger)
         {
             _mapper = mapper;
             _leaveTypeRepository = leaveTypeRepository;
-            _logger = logger;
+            this._logger = logger;
         }
-
-      
 
         public async Task<Unit> Handle(UpdateLeaveTypeCommand request, CancellationToken cancellationToken)
         {
@@ -30,11 +27,9 @@ namespace HR.LeaveManagement.Application.Features.LeaveType.Commands.UpdateLeave
 
             if (validationResult.Errors.Any())
             {
-                _logger.LogWarning("Validation errors in update request for {0} - {1}", 
-                    nameof(LeaveType), request.Id);
+                _logger.LogWarning("Validation errors in update request for {0} - {1}", nameof(LeaveType), request.Id);
                 throw new BadRequestException("Invalid Leave type", validationResult);
             }
-
 
             // convert to domain entity object
             var leaveTypeToUpdate = _mapper.Map<Domain.LeaveType>(request);

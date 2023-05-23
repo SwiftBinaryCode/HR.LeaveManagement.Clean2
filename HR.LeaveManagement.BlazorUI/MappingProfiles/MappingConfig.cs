@@ -32,7 +32,6 @@ namespace HR.LeaveManagement.BlazorUI.MappingProfiles
 
             CreateMap<EmployeeVM, Employee>().ReverseMap();
 
-
         }
     }
 }

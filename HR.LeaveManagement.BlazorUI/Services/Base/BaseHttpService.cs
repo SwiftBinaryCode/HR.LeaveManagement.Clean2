@@ -36,5 +36,6 @@ namespace HR.LeaveManagement.BlazorUI.Services.Base
                     new AuthenticationHeaderValue("Bearer", await _localStorage.GetItemAsync<string>("token"));
         }
 
+
     }
 }
